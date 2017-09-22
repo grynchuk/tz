@@ -1,0 +1,11 @@
+
+
+# перенаправляем все запросы которые попадают в дир.
+# на файл index.php при этом в параметр _url переводим
+# часть url  в которой записываем запрашиваемы путь  
+# например 127.0.0.1/test/func перенаправит на  127.0.0.1/public/index.php?_url=/test/func 
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteRule ^((?s).*)$ index.php?_url=/$1 [QSA,L]
+</IfModule>

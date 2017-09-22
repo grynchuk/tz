@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-private xmlns="http://www.netbeans.org/ns/project-private/1">
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
+    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+        <group>
+            <file>file:/var/www/tz/tools/useful.php</file>
+            <file>file:/var/www/tz/models/clients.php</file>
+            <file>file:/var/www/tz/models/movs.php</file>
+            <file>file:/var/www/tz/models/movsHistory.php</file>
+            <file>file:/var/www/tz/models/deposit.php</file>
+            <file>file:/var/www/tz/tools/dataMaker/sex.php</file>
+            <file>file:/var/www/tz/public/index.php</file>
+            <file>file:/var/www/tz/cron/operator.php</file>
+            <file>file:/var/www/tz/tools/dataMaker/client.php</file>
+            <file>file:/var/www/tz/models/counts.php</file>
+            <file>file:/var/www/tz/tools/dbConn.php</file>
+            <file>file:/var/www/tz/controllers/ReportsController.php</file>
+            <file>file:/var/www/tz/models/sex.php</file>
+        </group>
+    </open-files>
+</project-private>
