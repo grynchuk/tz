@@ -40,7 +40,7 @@ order by  dd.mon desc
     public function reportAvgDepAction()
     {
     
-        $sql="
+        $sql1="
 select 
  
   avg(
@@ -68,10 +68,40 @@ bank.counts c,
 where  c.deposit=dp.id 
   and  c.client=cl.id 
 ";
-        $data=useful::getQueryRes($sql);
-      
+        $sql2="
+select 
+ 
+  sum(
+   case when cl.bd>18 and cl.bd<=25 then 1 
+   else 0
+   end 
+   )
+  ,
+   sum(
+   case when cl.bd>25 and cl.bd<=50 then 1 
+   else 0 
+   end
+   )
+,
+   sum(
+   case when cl.bd>50 then 1
+   else 0 
+  end
+   )
+ 
+from 
+bank.deposit dp,
+bank.counts c,
+(select *, floor(datediff(curdate(),birthday) / 365) as bd from bank.clients) cl
+where  c.deposit=dp.id 
+  and  c.client=cl.id 
+";
+        
+        $dataSum=useful::getQueryRes($sql1);
+        $dataCol=useful::getQueryRes($sql2);      
        
-      $this->view->data=$data;
+      $this->view->dataSum=$dataSum;
+       $this->view->dataCol=$dataCol;
     }
     
 }
