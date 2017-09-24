@@ -10,6 +10,8 @@ use tools\dbConn;
 
 
 define('ROOT', dirname(__DIR__));
+include_once ROOT.'/tools/constants.php';
+
 
 //инициализируем загрузчик
 $loader = new Loader();

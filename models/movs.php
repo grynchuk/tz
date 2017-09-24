@@ -1,14 +1,14 @@
 <?php
-use \Phalcon\Mvc\Model;
+
 /**
  * типы движений с коеф. 
  *
  * @author grynchuk
  * @property int    $id     ид
- * @property int    $coef   коеф. указывающий на то что это убыток(-1) прибыль(1) или тип без движений 0
+ * @property int    $coef   коеф. указывающий на то что это  списания со счета (-1)  начисления(1) 
  * @property string $name   название типа
  */
-class movs extends Model {
+class movs extends baseModel {
     protected $id
              ,$coef
              ,$name;

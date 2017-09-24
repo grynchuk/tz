@@ -69,4 +69,43 @@ class useful {
         return  $store[$key];
     }
     
+    /**
+     * Выполняет запрос
+     * @param type $q
+     * @return array
+     */    
+    public static function getQueryRes($q){
+         
+        $conn= \tools\dbConn::getConn(); 
+        $rs = $conn->query($q);
+        $rs->setFetchMode( \Phalcon\Db::FETCH_NUM );
+        $rs=$rs->fetchAll($rs);
+        
+        return $rs;
+    }
+    /**
+     * Вывод таблици
+     * @param type $data
+     * @param type $head
+     * @return string
+     */
+    public static function showTab($data, $head){
+        $o='<table>';
+        $o.='<tr>';
+        foreach($head as $h){
+         $o.="<td>".$h."</td>";    
+        }
+        $o.='</tr>';
+        foreach( $data  as $row  ){
+             $o.='<tr>';
+               foreach($row as $t  
+                       ){
+                          $o.="<td>".$t."</td>";
+                       }
+             $o.='</tr>';      
+        };
+        return $o;
+    }
+    
+    
 }

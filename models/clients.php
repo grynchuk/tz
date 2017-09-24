@@ -1,5 +1,6 @@
 <?php
-use \Phalcon\Mvc\Model;
+
+
 /**
  * Класс клиента с указанными свойствами
  * 
@@ -9,16 +10,16 @@ use \Phalcon\Mvc\Model;
  * @property int        $codeId  Идентификационный еод
  * @property string     $name    Имя
  * @property int        $sex      ИД пола
- * @property \DateTime  $birthday день рождения
+ * @property \DateTime  $birthday день рождения 
  */
-class clients extends Model {
+class clients extends baseModel {
     protected $id,
               $codeId,
               $name,
               $secondName,
               $sex, 
               $birthday;
-    
+     
       function getId() {
           return $this->id;
       }
@@ -46,7 +47,8 @@ class clients extends Model {
       
 
       function setCodeId($codeId) {
-          $this->codeId = $codeId;
+         // echo "-- $codeId --";
+          $this->codeId = intval($codeId);
       }
 
       function setName($name) {
@@ -62,7 +64,7 @@ class clients extends Model {
       }
 
       function setBirthday( \DateTime $birthday) {
-          $this->birthday = $birthday;
+          $this->birthday = $birthday->format('Y-m-d');
       }
       
 }

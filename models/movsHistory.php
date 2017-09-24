@@ -1,5 +1,5 @@
 <?php
-use \Phalcon\Mvc\Model;
+
 /**
  * Класс для записи истории движений
  *
@@ -10,12 +10,17 @@ use \Phalcon\Mvc\Model;
  * @property int        $moveId     тип движения
  * @property \DateTime  $date       дата движения
  */
-class movsHistory extends Model {
+class movsHistory extends baseModel {
     protected $id,
               $count,
               $moveSum,
               $moveId,
               $date;
+    
+     public function getSource()
+    {
+        return "movsHistory";
+    }
     
       function getId() {
           return $this->id;
@@ -42,15 +47,15 @@ class movsHistory extends Model {
           $this->count = $count;
       }
 
-      function setMoveSum($moveSum) {
-          $this->moveSum = $moveSum;
+      function setMoveSum(\movsLogic $ml) {
+          $this->moveSum = $ml->getSum();
       }
 
       function setMoveId($moveId) {
           $this->moveId = $moveId;
       }
 
-      function setDate($date) {
-          $this->date = $date;
+      function setDate(\DateTime $date) {
+          $this->date = $date->format('Y-m-d');
       }     
 }

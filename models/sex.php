@@ -1,5 +1,5 @@
 <?php
-use \Phalcon\Mvc\Model;
+
 /**
  * Класс полов клиентов
  * @author grynchuk
@@ -7,7 +7,7 @@ use \Phalcon\Mvc\Model;
  * @property int    $id   идентификатор
  * @property string $name Название пола
  */
-class sex extends Model{
+class sex extends baseModel{
   protected   $id,
               $name ;
   

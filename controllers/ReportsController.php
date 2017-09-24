@@ -1,6 +1,6 @@
 <?php
 use Phalcon\Mvc\Controller;
-
+use \tools\useful;
 class ReportsController extends Controller
 {
     public function indexAction()
@@ -8,29 +8,70 @@ class ReportsController extends Controller
           
     }
 
-    public function reportOneAction()
+    public function reportBankProfitAction()
     {
-          // Pass the $postId parameter to the view
-        
-$sex1= \bank\sex::find();
-         
-     foreach($sex1 as $s){
+        $sql="select  dd.mon ,  sum(  dd.mov )
+from
+(
+select date_format(  mH.date, '%m.%Y' ) as mon ,   
        
-        var_dump( $s->getId()  , mb_detect_encoding($s->getName())   );
+       mH.moveSum 
+	   *
+       (
+        case when mH.moveId=10 then 0
+        else m.coef
+        end   
+        ) as mov
+from 
+ bank.movsHistory  mH, 
+ bank.movs m
+where   mH.moveId=m.id
+) dd
+group by dd.mon
+order by  dd.mon desc
+" ;  
+      $data=useful::getQueryRes($sql);
+      
        
-         
-     }
-
-       die();
-        $this->view->report = 1;
+      $this->view->data=$data; 
     }
     
     
-    public function reportTwoAction($arg1,$arg2)
+    public function reportAvgDepAction()
     {
     
-          // Pass the $postId parameter to the view
-        $this->view->report = 2;
+        $sql="
+select 
+ 
+  avg(
+   case when cl.bd>18 and cl.bd<=25 then dp.sum 
+   else 0
+   end 
+   )
+  ,
+   avg(
+   case when cl.bd>25 and cl.bd<=50 then dp.sum 
+   else 0 
+   end
+   )
+,
+   avg(
+   case when cl.bd>50 then dp.sum 
+   else 0 
+  end
+   )
+ 
+from 
+bank.deposit dp,
+bank.counts c,
+(select *, floor(datediff(curdate(),birthday) / 365) as bd from bank.clients) cl
+where  c.deposit=dp.id 
+  and  c.client=cl.id 
+";
+        $data=useful::getQueryRes($sql);
+      
+       
+      $this->view->data=$data;
     }
     
 }

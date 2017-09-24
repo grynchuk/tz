@@ -1,59 +1,67 @@
 <?php
-use \Phalcon\Mvc\Model;
+
 /**
  * Description of deposit
  *
  * @author grynchuk
  * 
  * @property int          $id           Ид
- * @property float        $stavka       процентная ставка
- * @property int          $term         количество дней когда она действет, деплзит млогут и продлить 
+ * @property float        $rate         процентная ставка
+ * @property \DateTime    $endDate      когда закончится время вклада
  * @property \DateTime    $dateBegin    когда сделали вклад
- * @property float        $sumStart     сумма вклада
+ * @property float        $sum     сумма вклада
  */
-class deposit extends Model {
+
+
+class deposit extends baseModel {
     
     protected $id,
-              $stavka,
-              $term=365,
+              $rate,              
+              $endDate,
               $dateBegin,
-              $sumStart;
-      function getStavka() {
-          return $this->stavka;
+              $sum;
+    
+      function getId() {
+          return $this->id;
       }
 
-      function getTerm() {
-          return $this->term;
+      function getRate() {
+          return $this->rate;
+      }
+
+      function getEndDate() {
+          return $this->endDate;
       }
 
       function getDateBegin() {
           return $this->dateBegin;
       }
 
-      function getSumStart() {
-          return $this->sumStart;
+      function getSum() {
+          return $this->sum;
       }
 
-      function setStavka($stavka) {
-          $this->stavka = $stavka;
+      function setId($id) {
+          $this->id = $id;
       }
 
-      function setTerm($term) {
-          $this->term = $term;
+      function setRate($rate) {
+          $this->rate = $rate;
       }
 
-      function setDateBegin($dateBegin) {
-          $this->dateBegin = $dateBegin;
+      function setEndDate(\DateTime $dateEnd) {
+          $this->endDate = $dateEnd->format('Y-m-d');
       }
 
-      function setSumStart($sumStart) {
-          $this->sumStart = $sumStart;
+      function setDateBegin(\DateTime $dateBegin) {
+         $this->dateBegin = $dateBegin->format('Y-m-d');
       }
 
-      function getId() {
-          return $this->id;
+      function setSum($sum) {
+          $this->sum = $sum;
       }
 
-
+      
+  //$this->dateBegin = $dateBegin->format('Y-m-d');
     
 }

@@ -2,7 +2,9 @@
 namespace tools;
 use \Phalcon\Db\Adapter\Pdo\Mysql;
 use \Phalcon\Config\Adapter\Ini;
-
+/**
+ * Сингл тон для БД 
+ */
 class dbConn {
     
     private static $conn=null; 

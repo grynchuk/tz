@@ -6,16 +6,25 @@
             <file>file:/var/www/tz/tools/useful.php</file>
             <file>file:/var/www/tz/models/clients.php</file>
             <file>file:/var/www/tz/models/movs.php</file>
+            <file>file:/var/www/tz/interfaces/movsLogic.php</file>
+            <file>file:/var/www/tz/models/baseModel.php</file>
+            <file>file:/var/www/tz/models/movsLogic/factory.php</file>
+            <file>file:/var/www/tz/tools/dataMaker/movs.php</file>
             <file>file:/var/www/tz/models/movsHistory.php</file>
             <file>file:/var/www/tz/models/deposit.php</file>
+            <file>file:/var/www/tz/models/movsLogic/deposit.php</file>
             <file>file:/var/www/tz/tools/dataMaker/sex.php</file>
             <file>file:/var/www/tz/public/index.php</file>
+            <file>file:/var/www/tz/tools/constants.php</file>
             <file>file:/var/www/tz/cron/operator.php</file>
             <file>file:/var/www/tz/tools/dataMaker/client.php</file>
             <file>file:/var/www/tz/models/counts.php</file>
             <file>file:/var/www/tz/tools/dbConn.php</file>
             <file>file:/var/www/tz/controllers/ReportsController.php</file>
+            <file>file:/var/www/tz/models/movsLogic/payment.php</file>
             <file>file:/var/www/tz/models/sex.php</file>
+            <file>file:/var/www/tz/tools/dataMaker/deposit.php</file>
+            <file>file:/var/www/tz/models/movsLogic/baseLogic.php</file>
         </group>
     </open-files>
 </project-private>
